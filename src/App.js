@@ -36,7 +36,7 @@ function App() {
                 <p>Main process responses:</p>
                 <br />
                 <pre>
-                    {(response && JSON.stringify(response, null, 2)) ||
+                    {(response && response.map(({ event_name }) => event_name)) ||
                         'No query results yet!'}
                 </pre>
             </article>
@@ -45,3 +45,4 @@ function App() {
 }
 
 export default App;
+
