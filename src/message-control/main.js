@@ -129,10 +129,10 @@ function DataExt(db, callback) {
     });
 }
 
-ipcMain.on('asynchronous-message', (event, arg) => {
+ipcMain.on(channels.ASYNC_MESSAGE, (event, arg) => {
     const sql = arg;
     database.all(sql, (err, rows) => {
-        event.reply('asynchronous-reply', (err && err.message) || rows);
+        event.reply(channels.ASYNC_REPLY, (err && err.message) || rows);
     });
 });
 
